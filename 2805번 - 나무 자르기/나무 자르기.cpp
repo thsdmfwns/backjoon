@@ -14,14 +14,7 @@
 #include<algorithm>
 
 using namespace std;
-
-bool count(vector<int>& v, int st, int n, int m){
-    int cnt = 0;
-    for(int i = st + 1; i < n; i++){
-        cnt += v[i] - v[st];
-    }
-    return cnt >= m;
-}
+using ll = long long;
 
 int main(){
     ios_base::sync_with_stdio(0);
@@ -29,16 +22,31 @@ int main(){
 
     int n, m;
     cin >> n >> m;
-    vector<int> v(n);
+    vector<ll> v(n);
     for(int i = 0; i < n; i++){
         cin >> v[i];
     }
-
     sort(v.begin(), v.end());
-    int st = n;
-    while(1){
-        if(st < 0) break;
-        if(count(v, --st, n, m)) break;
+    ll st = 0;
+    ll ed = v.back();
+    ll op = 0;
+    while(st <= ed){
+        ll mid = st + (ed - st) / 2;
+        ll count = 0;
+
+        for(auto i : v){
+            if(i > mid) count += i - mid;
+            if (count >= m) break;
+        }
+
+        if(count >= m){
+            op = mid;
+            st = mid +1;
+        }
+        else{
+            ed = mid - 1;
+        }
     }
-    cout << v[st];
+    
+    cout << op;
 }
