@@ -56,6 +56,10 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "queue": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "set": "cpp",
+        "stack": "cpp",
+        "unordered_set": "cpp",
+        "xtree": "cpp"
     }
 }
