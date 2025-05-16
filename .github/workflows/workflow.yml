@@ -25,7 +25,7 @@ jobs:
         uses: dltkdgns00/BOJ-action@main
         with:
           path: not_filled_files.txt
-          user_id: thsdmfwns
+          user_id: ths_dmfwns
           language_id: 1001
       - name: remove not_filled_files.txt
         run: rm not_filled_files.txt
